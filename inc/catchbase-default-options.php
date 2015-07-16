@@ -59,7 +59,7 @@ function catchbase_get_default_theme_options() {
 		'pagination_type'									=> 'default',
 
 		//Promotion Headline Options
-		'promotion_headline_option'							=> 'Disabled',
+		'promotion_headline_option'							=> 'disabled',
 		'promotion_headline'								=> __( 'La plateforme itslearning est axée sur la pédagogie', 'catchbase' ),
 		'promotion_subheadline'								=> __( 'Pour changer le lien promotionnel -> Personnaliser -> Options du Thème -> Options du lien promotionnel', 'catchbase' ),
 		'promotion_headline_button'							=> __( 'Découvrir', 'catchbase' ),
@@ -73,7 +73,7 @@ function catchbase_get_default_theme_options() {
 		'color_scheme' 										=> 'light',	
 		
 		//Featured Content Options
-		'featured_content_option'							=> 'Disabled',
+		'featured_content_option'							=> 'disabled',
 		'featured_content_layout'							=> 'layout-four',
 		//move_posts_home replaced with featured_content_position from version 1.1
 		'move_posts_home'									=> 0,
@@ -91,6 +91,9 @@ function catchbase_get_default_theme_options() {
 		'featured_slide_transition_length'					=> '1',
 		'featured_slider_type'								=> 'demo-featured-slider',
 		'featured_slide_number'								=> '4',
+
+		//disable logo
+		'logo_disable'										=> 'true',
 		
 		//Reset all settings
 		'reset_all_settings'								=> 0,
@@ -612,7 +615,7 @@ function catchbase_get_content() {
 
 
 // this is the content at the top left
-	$catchbase_content['top_left'] 	= '<a href="http://itstechno.fr/wordpress/school2/">School20</a>';
+	$catchbase_content['top_left'] 	= '<a href="'. esc_url( home_url( '/' ) ) .'">'. esc_attr( get_bloginfo( 'name', 'display' ) ) . '</a>';
 // this is the content at the bottom right
 	// <img src="' . get_template_directory_uri() . '/images/login.jpg" class="wp-post-image" alt="se connecter" title="se connecter">
 	$catchbase_content['top_right']	= '&nbsp;<a class="genericon_parent genericon genericon-key" target="_self" href="https://cas.itslearning.com/cas-demo/login?cuid=2181&service=https://vsdemo3.itslearning.com/Index.aspx">se connecter</a>';
@@ -621,6 +624,13 @@ function catchbase_get_content() {
 // this is the content at the bottom right
 	//$catchbase_content['right']	= esc_attr( $theme_data->get( 'Name') ) . '&nbsp;' . __( 'by', 'catchbase' ). '&nbsp;<a target="_blank" href="'. esc_url( $theme_data->get( 'AuthorURI' ) ) .'">'. esc_attr( $theme_data->get( 'Author' ) ) .'</a>';
 	$catchbase_content['right']	= '&nbsp;<a class="genericon_parent genericon genericon-cog" target="_self" href="'.esc_url( home_url( '/' )  ) .'wp-admin'.'">Administration du portail</a>';
+// this is the reférence to the partners of the project
+	$catchbase_content['partners']	= '<div id="logos_partners">
+	<div><a href="http://www.seine-saint-denis.fr/"><img src="'. get_template_directory_uri() . '/images/partenaires/seine-saint-denis.png" alt="Seine-Saint-Denis"></a></div>
+	<div><a href="http://www.ac-creteil.fr/"><img src="'. get_template_directory_uri() . '/images/partenaires/ac-creteil.png" alt="Académie de Créteil"></a></div>
+	<div><a href="http://www.itslearning.fr/"><img src="'. get_template_directory_uri() . '/images/partenaires/itslearning.png" alt="itslearning"></a></div>
+</div><!-- #logos_partenaires -->';
+
 
 	return apply_filters( 'catchbase_get_content', $catchbase_content );
 }

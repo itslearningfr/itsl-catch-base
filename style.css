@@ -558,6 +558,9 @@ blockquote:before {
 
 #masthead {
 	padding: 0px;
+	background-image: url("./images/headers/header-1200x180.jpg");
+	opacity: 0.8;
+	
 }
 
 #site-branding,
@@ -1216,6 +1219,7 @@ textarea {
 #site-header {
 	display: inline-block;
 	float: left;
+
 }
 
 #site-branding,
@@ -1849,8 +1853,35 @@ caption {
 	text-align: right;
 }
 
+#logos_partners {
+	text-align: justify;
+	padding-left: 40px;
+	padding-right: 40px;
+	}
+
+#logos_partners > div {
+	height: 60px; /* Declare your value. Can be in relative units. */
+	display: inline-block;
+	vertical-align: top;
+
+	/* IE fix. */
+	*display: inline;
+	zoom: 1;
+	}
+
+#logos_partners img {
+	height: 100%; /* Declare your value. Can be in relative units. */
+	width: auto;
+	}
+
+#logos_partners:after {
+	content: "";
+	width: 100%;
+	display: inline-block;
+    }
+
 /*--------------------------------------------------------------
-10. Extra Elements
+20. Extra Elements
 --------------------------------------------------------------*/
 /* Catchbase Scrollup */
 #scrollup {
